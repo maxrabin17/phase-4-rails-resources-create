@@ -16,4 +16,13 @@ class BirdsController < ApplicationController
     end
   end
 
+  def create
+    # byebug
+    # get the data from the body of the request
+    # create a new bird
+    bird = Bird.create(name: params[:name], species: params[:species])
+    # send the newly created Bird as a response
+    render json: bird, status: :created
+  end
+
 end
